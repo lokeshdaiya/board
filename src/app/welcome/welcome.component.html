@@ -1,0 +1,34 @@
+<div class="welcome-container">
+        <section>
+                <div>
+                  <button mat-raised-button  color="primary" style="float:right" (click)="addPost()">Add New Post</button>
+                  </div>
+                  <mat-form-field class="example-full-width">
+                          <input type="search" matInput placeholder="Search on technologies" [formControl]="searchControl">
+                          <mat-icon matSuffix>search</mat-icon>
+                 </mat-form-field>
+              </section>
+
+          <section  class="post-section">
+
+
+              <mat-card class="post-card"  *ngFor="let post of filteredPost">
+                      <div><a [routerLink]="post.postId"><button mat-raised-button  style="float:right">View</button></a></div>
+                      <br><br>
+                      <div class="create-time" >{{post.createdAt | date}}</div>
+                      <div class="card-title "><b>Problem Statement: </b><br>{{post.title}}</div>
+                      <div class="create-by" ><b>Posted by: </b><br><i>{{post.createdBy}}</i></div>
+
+                       <div style="padding-top:14px">
+                           <span class="impact"  [ngClass]="post.businessImpact | lowercase"><b style="font-size: 18px;">{{post.businessImpact}}</b></span>
+                           <span class="technologies" ><b style="font-size: 18px;">{{post.technologies}}</b></span>
+                        </div>
+              </mat-card>
+
+
+
+                  </section>
+
+
+</div>
+

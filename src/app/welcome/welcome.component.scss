@@ -1,0 +1,76 @@
+.welcome-container {
+  .postdetails {
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-left:10px;
+    padding:10px;
+    border-left: 5px solid green;
+   box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  }
+
+  .post-card {
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
+    border-radius: 5px;
+    margin-bottom: 20px;
+    background-color: #2f3e47;
+    width: 400px;
+    height:230px;
+    color: rgba(255, 255, 255, 0.9);
+    margin-left: 20px;
+
+    b {
+      font-size: 12px;
+    }
+  }
+
+  .post-section {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    padding-right: 15px;
+  }
+
+.card-title {
+  font-size: 14px;font-weight: 400;height:70px;width:100%;white-space: wrap; overflow: hidden;
+  text-overflow: ellipsis;padding-top: 10px;line-height: 20px
+}
+
+.high {
+  color: #dc3545;
+}
+
+.medium {
+  color: #ffc107;
+}
+
+.low {
+  color: #007bff;
+}
+
+
+.mat-button, .mat-raised-button {
+  background-color: #6f42c1 !important;
+  border-color: #6f42c1 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+}
+}
+
+.create-time {
+  font-size: 13px;font-weight: 600;margin-top: -20px;
+}
+
+.card-title{
+  font-size: 15px;font-weight: 500; padding-top: 10px;
+}
+
+.create-by {
+  font-size: 15px;font-weight: 500; padding-top: 10px;
+}
+
+.impact {
+  float:left;font-size:30px;font-weight: bold
+}
+
+.technologies {
+  float:right;font-size:12px;font-weight: bold;color:#5b69bc; padding-top: 13px;
+}

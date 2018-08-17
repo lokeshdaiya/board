@@ -1,0 +1,29 @@
+<div fxLayout="column" [style.height]="'100vh'">
+  <header>
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+        <span>{{title}}</span>
+        <button mat-button style="float: right;" (click)="authService.signOut()" *ngIf="authService.isUserEmailLoggedIn">Sign out</button>
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </header>
+  <div class="app-canvas" fxFlex [style.overflow-y]="'auto'">
+      <mat-sidenav-container fxFlex>
+          <mat-sidenav *ngIf="authService.isUserEmailLoggedIn" mode="side" style="width:15%; min-width: 130px" [opened]="userService.currentUser" disableClose="true" class="background-primary-dark">
+            <app-user-profile *ngIf="userService.currentUser" (click)="selectedPath = ''"></app-user-profile>
+            <mat-nav-list>
+              <mat-list-item *ngFor="let link of ['home', 'dashboard']">
+                 <a matLine (click)="openBasic(link)">{{ link }}</a>
+              </mat-list-item>
+            </mat-nav-list>
+          </mat-sidenav>
+
+          <div class="complete-canvas">
+              <router-outlet></router-outlet>
+          </div>
+        </mat-sidenav-container>
+      </div>
+  <footer>
+
+  </footer>
+</div>

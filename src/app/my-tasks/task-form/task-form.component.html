@@ -1,0 +1,47 @@
+<section>
+    <h1 mat-dialog-title style="color:white">
+        <span  *ngIf="post.postId"> Edit post </span>
+        <span  *ngIf="!post.postId"> Add post </span>
+
+    </h1>
+    <mat-dialog-content>
+        <section fxLayout="row" fxLayoutGap="20px">
+            <form [formGroup]="postForm" novalidate class="post-form">
+                <input hidden formControlName="postId">
+                 <mat-form-field  fxLayout="column">
+                    <input matInput placeholder="Problem Statement" formControlName="title">
+                  </mat-form-field>
+                  <mat-form-field  fxLayout="column">
+                    <textarea matInput placeholder="Description" formControlName="description">
+
+                    </textarea>
+                  </mat-form-field>
+                  <mat-form-field  fxLayout="column">
+                    <input matInput placeholder="Business Unit" formControlName="businessUnit">
+                  </mat-form-field>
+                  <mat-form-field  fxLayout="column">
+                    <input matInput placeholder="ETA (in days)" formControlName="estimatedTime">
+                  </mat-form-field>
+                  <mat-form-field  fxLayout="column">
+                    <input matInput placeholder="Technologies" formControlName="technologies">
+                  </mat-form-field>
+
+                  <mat-form-field >
+                    <mat-select  placeholder="Challenge Area" formControlName="challengeArea" fxLayout="column">
+                        <mat-option *ngFor="let challenge of challenges" [value]="challenge">{{challenge}}</mat-option>
+                    </mat-select>
+                  </mat-form-field>
+                  <mat-form-field >
+                    <mat-select  placeholder="Business impact" formControlName="businessImpact" fxLayout="column">
+                        <mat-option value="High">High</mat-option>
+                        <mat-option value="Medium">Medium</mat-option>
+                        <mat-option value="Low">Low</mat-option>
+                    </mat-select>
+                 </mat-form-field>
+                 <button mat-raised-button color="primary" *ngIf="!post.postId"  [disabled]="!postForm.valid" (click)="saveData()">Save</button>
+                 <button mat-raised-button color="primary" *ngIf="post.postId"   [disabled]="!postForm.valid" (click)="updateData()">Update</button>
+              </form>
+          </section>
+    </mat-dialog-content>
+  </section>
+

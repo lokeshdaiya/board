@@ -1,0 +1,18 @@
+<section>
+        <h1 mat-dialog-title style="color:white">Apply Here!!!</h1>
+        <mat-dialog-content >
+            <section fxLayout="row" fxLayoutGap="20px">
+          <form (ngSubmit)="onFormsubmit()" class="form" name="form">
+                <mat-form-field  fxLayout="column">
+                  <input type="number"  [(ngModel)]="estimate" name="estimate"  matInput placeholder="Estimated Time(in days)">
+                </mat-form-field>
+
+                <mat-form-field  fxLayout="column">
+                  <textarea   matInput [(ngModel)]="comment" name="comment" placeholder="User Comments"></textarea>
+                </mat-form-field>
+
+                <button mat-raised-button  color="primary" >Submit</button>
+          </form>
+          </section>
+        </mat-dialog-content>
+      </section>

@@ -1,0 +1,23 @@
+<section class="section-dialog-panel post-response-container">
+		<h1 mat-dialog-title style="color: white">Post Response</h1>
+    <mat-dialog-content>
+      <p><b>Email:</b> <a href="#" style="color: lightskyblue">{{userPostMapData.appliedUserId}}</a> </p>
+      <p><b>User Comment</b> </p>
+      {{userPostMapData.appliedUserComment}}
+      <p><b>Timeline:</b> {{userPostMapData.appliedUserETA}} days </p>
+
+      <p><b>Applied Date:</b> {{userPostMapData.appliedAt| date:'medium'}} </p>
+      <mat-form-field  *ngIf="userPostMapData.isAssigned && !userPostMapData.completed">
+        <mat-select  placeholder="Award"  fxLayout="column"  [(ngModel)]="award" name="award">
+            <mat-option value="Kudos">Kudos</mat-option>
+            <mat-option value="Laureate">Laureate</mat-option>
+            <mat-option value="Online">Online</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br />
+      <button mat-raised-button color="primary"  (click)="approve()" *ngIf="!userPostMapData.isAssigned" >Approve</button>
+      <button mat-raised-button color="primary"  (click)="complete()" *ngIf="userPostMapData.isAssigned && !userPostMapData.completed">Mark as complete</button>
+      <p *ngIf="userPostMapData.completed" style="color:lightseagreen">User completed this task</p>
+      <p *ngIf="userPostMapData.award && userPostMapData.completed"><b>Award:</b>&nbsp;{{userPostMapData.award}}</p>
+		</mat-dialog-content>
+  </section>

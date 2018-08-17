@@ -1,0 +1,58 @@
+<section fxLayout="row" fxLayoutGap="20px">
+  <mat-card  fxFlex="50%" *ngIf="user" class="card-background">
+    <form [formGroup]="profileForm" novalidate>
+      <div style="display: inline-block; width:69%;">
+          <mat-form-field style="width: 100%"  fxLayout="row">
+            <input matInput placeholder="Name" formControlName="name">
+          </mat-form-field>
+          <mat-form-field style="width: 100%"  fxLayout="row">
+            <input matInput placeholder="Email Id" formControlName="email">
+          </mat-form-field>
+          <Section>
+            <mat-radio-group  formControlName="gender">
+              <mat-radio-button  value="Male">Male</mat-radio-button>
+              <mat-radio-button  value="Female">Female</mat-radio-button>
+            </mat-radio-group>
+          </Section>
+          <mat-form-field style="width: 100%"  fxLayout="row">
+            <input matInput placeholder="Designation" formControlName="designation">
+          </mat-form-field>
+      </div>
+      <div class="user-profile-image-div">
+          <img class="user-profile-image-img" *ngIf="userService.currentUser.profilePicture" [src]="userService.currentUser.profilePicture"><br><br>
+          <div class="avatar" *ngIf="!userService.currentUser.profilePicture">
+          <mat-icon>person</mat-icon>
+          </div>
+          <br />
+          <button mat-raised-button class="profile-buttons" (click)="fileUpload.click()">Upload Image</button>
+          <input type="file" accept=".png" style="display: none" (change)="uploadFile($event)" id="file" #fileUpload name="file">
+      </div>
+      <div *ngIf="isLoading">
+        <app-loading></app-loading>
+      </div>
+      <mat-form-field style="width: 100%"  fxLayout="row">
+        <input matInput placeholder="Business Unit" formControlName="businessUnit">
+      </mat-form-field>
+      <mat-form-field style="width: 100%"  fxLayout="row">
+        <textarea matInput placeholder="Brief Description" formControlName="description"></textarea>
+      </mat-form-field>
+      <mat-form-field style="width: 100%" >
+        <input matInput placeholder="Skills" formControlName="skills">
+        <!-- <mat-chip-list ="">
+          <mat-chip ="">Chip 1</mat-chip>
+          <mat-chip ="">Chip 2</mat-chip>
+          <mat-chip ="">Chip 3</mat-chip>
+        </mat-chip-list> -->
+        <!-- <mat-chip-list selectable="false" ="">
+          <mat-chip color="accent" selected="true" ="">Selected/Colored</mat-chip>
+
+          <mat-chip color="warn" selected="true" *ngIf="visible" (destroy)="displayMessage(&apos;chip destroyed&apos;)" (remove)="toggleVisible()" ="">
+            With Events
+            <mat-icon matChipRemove="">cancel</mat-icon>
+          </mat-chip>
+        </mat-chip-list> -->
+      </mat-form-field>
+      <button mat-raised-button class="profile-buttons" (click)="submitForm()">SUBMIT</button>
+    </form>
+  </mat-card>
+</section>

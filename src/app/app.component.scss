@@ -1,0 +1,72 @@
+
+html , body, .mat-sidenav-container {
+  background-color: #253138;
+  color: #98a6ad !important;;
+  font-size: 14px;
+  width:100%;
+  height:100%;
+
+  .mat-form-field-label, .mat-input-element {
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  .mat-form-field-underline {
+    background-color: rgba(255, 255, 255, 0.9) !important;
+  }
+
+  .mat-radio-outer-circle {
+    border-color: white;
+  }
+
+  .mat-tab-label-content {
+    color: white;
+  }
+
+  .mat-expansion-panel {
+    background-color: #2f3e47;
+  }
+
+  .mat-expansion-panel-header-title {
+    margin-top: 9px;
+    color: white;
+  }
+
+  .mat-icon {
+    color: white;
+  }
+}
+
+mat-toolbar.mat-primary {
+  background-color: #2f3e47 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
+  height: 55px;
+  padding-top: 10px;
+}
+
+
+.section-dialog-panel {
+  background: #2f3e47;
+}
+.background-primary-dark {
+  background-color: #2f3e47 !important;
+  color: rgba(255, 255, 255, 0.9) !important;
+  box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.06), 0 1px 0px 0 rgba(0, 0, 0, 0.02);
+}
+
+.mat-select-value-text {
+  color: white;
+}
+
+.app-canvas {
+  padding: 0px !important;
+  background: #2f3e47;
+}
+
+footer {
+  background: #2f3e47;
+  color: white;
+  border-top-width: 0px !important;
+  box-shadow: 0 -5px 5px -5px rgba(0, 0, 0, 0.25);
+   z-index: 100;
+}

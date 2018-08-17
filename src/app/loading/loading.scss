@@ -1,0 +1,54 @@
+.ball-rotate{
+  position:relative;
+  display: flex;
+  justify-content: center;
+  z-index: 9999;
+}
+.ball-rotate>div{
+  background-color: white;
+  width:15px;
+  height:15px;
+  border-radius:100%;
+  margin:2px;
+  -webkit-animation-fill-mode:both;
+  animation-fill-mode:both;
+  position:relative
+}
+.ball-rotate>div:first-child{
+  -webkit-animation:1s cubic-bezier(.7,-.13,.22,.86) infinite rotate;
+  animation:1s cubic-bezier(.7,-.13,.22,.86) infinite rotate
+}
+.ball-rotate>div:after,.ball-rotate>div:before{
+  background-color:white;
+  width:15px;
+  height:15px;
+  border-radius:100%;
+  margin:2px;
+  content:"";
+  position:absolute;
+  opacity:.8
+}
+.ball-rotate>div:before{
+  top:0;
+  left:-28px
+}
+.ball-rotate>div:after{
+  top:0;
+  left:25px
+}
+
+@keyframes rotate{
+  0%{
+      -webkit-transform:rotate(0) scale(1);
+      transform:rotate(0) scale(1)
+  }
+  50%{
+      -webkit-transform:rotate(180deg) scale(.6);
+      transform:rotate(180deg) scale(.6)
+  }
+  100%{
+      -webkit-transform:rotate(360deg) scale(1);
+      transform:rotate(360deg) scale(1)
+  }
+}
+

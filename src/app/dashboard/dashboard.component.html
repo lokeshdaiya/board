@@ -1,0 +1,82 @@
+<div class="dashboard-container">
+  <div class="docs-component-list-category">
+    <a *ngFor="let component of categories"
+        class="docs-component-list-item"
+        >
+            <mat-card class="docs-component-list-card"
+                        [ngClass]="{'cayan': component.id == 1,
+                                    'purple': component.id == 2,
+                                    'orange': component.id == 3,
+                                    'green': component.id == 4}">
+                <mat-card-title class="docs-component-list-card-title">{{component.title}}</mat-card-title>
+                <div class="docs-component-list-icon-spacer"></div>
+                <div class="docs-component-list-item-icon">
+                {{component.count}}</div>
+            </mat-card>
+    </a>
+</div>
+
+<div class="chart-container">
+    <mat-card class="chart-card pie-chart">
+        <ngx-charts-pie-chart
+         [view]="view"
+         [scheme]="colorScheme"
+         [results]="single"
+         [labels]="'true'"
+         [animations]="animations"
+         (select)="onSelect($event)">
+       </ngx-charts-pie-chart>
+      </mat-card>
+
+      <mat-card class="post-card ">
+        <mat-card-header>
+          <mat-card-title><h3>Average Monthly completed</h3></mat-card-title>
+        </mat-card-header>
+        <circle-progress
+        [percent]="60"
+        [radius]="80"
+        [outerStrokeWidth]="16"
+        [innerStrokeWidth]="8"
+        [outerStrokeColor]="'#43d967'"
+        [titleFontSize]="29"
+        [subtitleFontSize]="14"
+        [innerStrokeColor]="'#74b683'"
+        [animation]="true"
+        [titleColor]="'#E5E5E5'"
+        [animationDuration]="1000"
+      ></circle-progress>
+      </mat-card>
+
+      <mat-card class="post-card">
+        <mat-card-header>
+          <mat-card-title><h3>Latest activities</h3></mat-card-title>
+        </mat-card-header>
+
+       <mat-nav-list>
+          <marquee direction="down" scrolldelay="120">
+            <a mat-list-item href="#">
+              <mat-icon mat-list-icon style="color:#7266ba" >fiber_new</mat-icon>
+              <span mat-line>New Post</span>
+              <span mat-line class="demo-secondary-text"> <i>Angular 5 firebase query </i></span>
+            </a>
+            <a mat-list-item href="#">
+              <mat-icon mat-list-icon style="color:#23b7e5" >done_outline</mat-icon>
+              <span style="color:#23b7e5" mat-line>Last Completed Task</span>
+              <span style="color:#5d9cec" mat-line class="demo-secondary-text"><i>Python Api Expose</i> </span>
+            </a>
+             <a mat-list-item href="#">
+              <mat-icon mat-list-icon style="color:#27c24c" >email</mat-icon>
+              <span style="color:#52ca6e" mat-line>New Meeting</span>
+              <span style="color:#555" mat-line class="demo-secondary-text"><i>On 10/12/2015 09:00 am</i> </span>
+            </a>
+            <a mat-list-item href="#">
+              <mat-icon mat-list-icon style="color:#ff902b" >timeline</mat-icon>
+              <span mat-line style="color:#ff902b">Task Completion</span>
+              <span mat-line class="demo-secondary-text"> <mat-progress-bar  mode="determinate" value="40"></mat-progress-bar> </span>
+            </a>
+          </marquee>
+      </mat-nav-list>
+
+      </mat-card>
+  </div>
+</div>

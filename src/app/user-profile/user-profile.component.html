@@ -1,0 +1,15 @@
+<div routerLink="/profile" routerLinkActive="router-link-active" class="user-block">
+  <div class="user-block-picture">
+    <img class="img-thumbnail"  *ngIf="userService.currentUser.profilePicture" [src]="userService.currentUser.profilePicture">
+    <div class="avatar" *ngIf="!userService.currentUser.profilePicture">
+      {{userService.currentUser.name.substr(0,2)|uppercase}}
+    </div>
+  </div>
+
+ 
+  
+  <div class="user-block-info">
+    <div *ngIf="userService.currentUser.name">Welcome {{userService.currentUser.name}}</div>
+    <div *ngIf="userService.currentUser.designation">{{userService.currentUser.designation}}</div>
+  </div>
+</div>

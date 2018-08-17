@@ -1,0 +1,57 @@
+<section fxLayout="row" class="login-form" fxLayoutGap="20px">
+  <mat-card  class="card-background" fxFlex="50%" *ngIf="user">
+      <div *ngIf="!authService.isUserEmailLoggedIn">
+        <div  *ngIf="!isNewUser" class="form-container">
+          <p *ngIf="errorMessage.length > 0" class="mat-danger">
+            {{errorMessage}}</p>
+
+          <p *ngIf="error.message.length > 0" class="mat-danger">
+            {{error.message}}</p>
+
+          <form (ngSubmit)="onSignUp()">
+            <mat-form-field  fxLayout="column">
+                <input type="text" id="name" placeholder="Name" matInput name="name" required [(ngModel)]="name">
+            </mat-form-field>
+
+            <mat-form-field  fxLayout="column">
+              <input type="email" id="email" placeholder="Email" matInput name="email" required [(ngModel)]="email">
+            </mat-form-field>
+
+            <mat-form-field  fxLayout="column">
+              <input type="password" placeholder="Password" matInput id="password" name="password" required [(ngModel)]="password">
+            </mat-form-field>
+            <div *ngIf="isLoading">
+                <app-loading></app-loading>
+              </div>
+            <button mat-raised-button class="login-button">REGISTER</button>
+          </form>
+          <br/>
+          <span class="login-form-text">Already have an account?</span>&nbsp;<a id="login-link" (click)="changeForm()">Log In here</a>
+        </div>
+
+        <div *ngIf="isNewUser" class="form-container">
+          <p *ngIf="errorMessage.length > 0" class="mat-danger">
+            {{errorMessage}}</p>
+
+          <p *ngIf="error.message.length > 0" class="mat-danger">
+            {{error.message}}</p>
+
+          <form (ngSubmit)="onLoginEmail()">
+                  <mat-form-field  fxLayout="column" class="login-form-text">
+              <input type="email" matInput placeholder="Email" id="email" name="email" required [(ngModel)]="email">
+                  </mat-form-field>
+
+            <mat-form-field  fxLayout="column" class="login-form-text">
+              <input type="password" matInput placeholder="Password" id="password" name="password" required [(ngModel)]="password">
+            </mat-form-field>
+            <div *ngIf="isLoading">
+                <app-loading></app-loading>
+              </div>
+            <button mat-raised-button class="login-button">LOGIN</button>
+          </form>
+          <br />
+          <span class="login-form-text">Not registered?</span>&nbsp;<a id="create-accoount-link" (click)="changeForm()">Create an account</a>
+        </div>
+      </div>
+  </mat-card>
+</section>

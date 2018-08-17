@@ -1,0 +1,59 @@
+
+  <mat-card *ngIf='post'>
+      <mat-card-content>
+              <div class="row">
+                <div class="col-50">
+                  <h2>
+                      {{post.title}}
+                  </h2>
+                </div>
+                <div class="col-50">
+                    <button mat-raised-button  class="applyBtn" [disabled]="isApplied.length > 0" color="primary" (click)="openApplyForm(post)">
+                        <span *ngIf="!(isApplied.length > 0)"> Apply </span>
+                        <span *ngIf="isApplied.length > 0"> Applied </span>
+                    </button>
+                </div>
+            </div>
+
+              <div class="row">
+                  <div class="description">
+                    <h4>{{post.description}}</h4>
+                  </div>
+              </div>
+
+              <div class="row">
+
+                      <div class="col">
+                          <span class="label">Posted By: </span> <br />
+                          <span class="desc"> {{post.createdBy}} </span>
+                      </div>
+
+                      <div class="col">
+                         <span class="label"> Posted At: </span> <br />
+                         <span class="desc">  {{post.createdAt| date: 'medium'}}</span>
+                      </div>
+
+                      <div class="col">
+                          <span class="label">Estimated Time:</span><br />
+                          <span class="desc"> {{post.estimatedTime}} days </span>
+                      </div>
+             </div>
+
+              <div class="row">
+                  <div class="col">
+                      <span class="label"> Business Impact: </span> <br />
+                      <span class="desc">  {{post.businessImpact}}    </span>
+                  </div>
+
+                  <div class="col">
+                      <span class="label"> Business Unit:</span> <br />
+                      <span class="desc"> {{post.businessUnit}}</span>
+                  </div>
+
+                  <div class="col">
+                      <span class="label">  Challenge Area: </span> <br />
+                      <span class="desc">  {{post.challengeArea}} </span>
+                  </div>
+              </div>
+      </mat-card-content>
+  </mat-card>

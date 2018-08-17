@@ -1,0 +1,76 @@
+<mat-tab-group class="my-task-page" (selectedTabChange)="switchTab($event)" mat-stretch-tabs>
+  <mat-tab label="Posted by me">
+   <!-- Posted by Me Section -->
+    <mat-accordion *ngIf="show">
+      <mat-expansion-panel (opened)="loadNotification(post)" *ngFor="let post of postedByData" >
+        <mat-expansion-panel-header>
+          <mat-panel-title>{{post.title}}</mat-panel-title>
+          <div class="div-icon-container">
+            <span [ngClass]="getTaskStatus(post.status | lowercase)">{{post.status}}</span>
+            <button mat-button class="mat-button-icon-width" color="primary" (click)="openEditForm(post)"><mat-icon >edit</mat-icon></button>
+              <button mat-button class="mat-button-icon-width" color="warn" (click)="deletePost(post)"><mat-icon>delete</mat-icon></button>
+          </div>
+        </mat-expansion-panel-header>
+        <br />
+        <div class="notification" *ngFor="let response of notifications">
+          <a href="#" class="link-color-task">{{response.appliedUserId}}</a>  {{response.appliedAt| date: 'medium'}}
+          <span *ngIf="response.isAssigned">(Assigned)</span>
+          <button mat-raised-button (click)="openNotification(response)" class="subtask-button" style="float:right">View</button>
+        </div>
+      </mat-expansion-panel>
+    </mat-accordion>
+
+
+    </mat-tab>
+    <mat-tab label="Applied">
+      <div *ngIf="show" class="appliedPost">
+      <mat-card *ngFor="let post of appliedPosts">
+        <mat-card-content>
+          <div class="row">
+            <div class="description">
+              <span class="label">Problem Statment:</span>
+              <br />
+              <br />
+              <span class="desc"><a style="color:white" routerLink="/home/{{post.postId}}">{{post.title}}</a></span>
+            </div>
+          </div>
+          <br />
+          <div class="row">
+              <div class="description">
+                <span class="label">My Comment:</span> <br />
+                <br />
+                <span class="desc">{{post.appliedUserComment}}</span>
+              </div>
+          </div>
+
+          <div class="row">
+            <div class="col">
+                <span class="label">Posted By:</span>
+                  <br />
+                  <span class="desc"><a style="color:white"  href="#">{{post.createdBy}}</a></span>
+            </div>
+
+            <div class="col">
+                <span class="label">Apply Date:</span>
+                  <br />
+                <span class="desc"> {{post.appliedAt| date:'medium'}} </span>
+            </div>
+
+            <div class="col">
+              <span class="label">Status:</span>
+              <br />
+              <span style="color:white" *ngIf="!post.isApproved && !post.completed">waiting</span>
+              <span style="color:white" *ngIf="post.isApproved && !post.completed" >Approved</span>
+              <span style="color:white" *ngIf="post.completed">Complete</span>
+          </div>
+          </div>
+        </mat-card-content>
+    </mat-card>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+
+
+    <div style="margin-top:200px" *ngIf="!show">
+      <app-loading></app-loading>
+    </div>
